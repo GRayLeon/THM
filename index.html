@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>THM | 新北市立淡水古蹟博物館</title>
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+  <div id="app">
+    <div class="header">
+      <div class="headerArea">
+        <img src="./images/logo.svg" alt="" class="logo">
+        <img src="./images/logo--mobile.svg" alt="" class="logo logo--mobile">
+        <div class="navArea" :class="{ 'open': isOpenNav }">
+          <ul class="mainNav">
+            <li><a href="">世界遺產文化路徑</a></li>
+            <li><a href="">清法戰爭歷史現場</a></li>
+            <li><a href="">日治昭和文化生活</a></li>
+          </ul>
+          <ul class="optionNav">
+            <li @click="openSearchArea()">
+              <img src="./images/icon--search.svg" alt="" class="search">
+              <div class="searchInput">
+                <input type="text" placeholder="請輸入搜尋內容">
+                <img src="./images/icon--search.svg" alt="">
+              </div>
+            </li>
+            <li><img src="./images/icon--lan.svg" alt="" class="lan"><span>EN</span></li>
+          </ul>
+        </div>
+        <div class="openNav" @click="toogleNav()">
+          <img src="./images/btn--menu.svg" />
+        </div>
+      </div>
+      <div class="searchArea" :class="{ 'open': isOpenSearch }">
+        <div class="searchInput">
+          <input type="text" placeholder="請輸入搜尋內容">
+          <img src="./images/icon--search.svg" alt="">
+        </div>
+        <img @click="closeSearchArea()" src="./images/btn--close.svg" alt="" class="close">
+      </div>
+    </div>
+    <div class="content">
+      <div class="indexBanner">
+        <div class="indexBanner__slide">
+          <img src="./images/indexBanner.png" alt="">
+        </div>
+        <div class="indexBanner__content">
+          <div class="detail">
+            <div class="line"></div>
+            <div class="titleArea">
+              <div class="pattern"></div>
+              <div class="title">
+                <h1>
+                  THM<br/>
+                  Digital<br/>
+                  Museum
+                </h1>
+                <h2>淡水古蹟博物館</h2>
+              </div>
+            </div>
+            <div class="mobilePattern"></div>
+            <div class="description">
+              <p>以 720° 全景收錄淡水古蹟的每個角落光影、紋理與故事，在線上展間自由漫遊。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="indexIntro">
+        <div class="wrapper">
+          <div class="borderArea">
+            <div class="indexIntro__title">Intro</div>
+            <p>
+              淡水古蹟博物館座落於淡水河口，串聯紅毛城、滬尾砲台等重要歷史場域，見證淡水在航海、貿易與殖民交會下形成的城市樣貌。透過建築保存、展覽策劃與數位展示，博物館呈現從清代、日治到現代的生活軌跡，讓歷史不只被保存，也能被理解、被重新走進。
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="indexCategory typeA" id="category_1">
+        <div class="indexCategory__title">Category 1</div>
+        <div class="indexCategory__content">
+          <img src="./images/indexCatgory_img_01.png" alt="">
+          <div class="detail">
+            <div class="text">
+              <h1>
+                World<br/>
+                Heritage<br/>
+                Route
+              </h1>
+              <h2>
+                世界遺產文化路徑
+              </h2>
+            </div>
+            <img src="./images/btn--link.svg" alt="" class="button" />
+          </div>
+        </div>
+      </div>
+      <div class="indexCategory typeB" id="category_2">
+        <div class="indexCategory__title">Category 2</div>
+        <div class="indexCategory__content">
+          <img src="./images/indexCatgory_img_02.png" alt="">
+          <div class="detail">
+            <div class="text">
+              <h1>
+                Sino–French<br/>
+                War Site
+              </h1>
+              <h2>
+                清法戰爭歷史現場
+              </h2>
+            </div>
+            <img src="./images/btn--link.svg" alt="" class="button">
+          </div>
+        </div>
+      </div>
+      <div class="indexCategory typeC" id="category_3">
+        <div class="indexCategory__title">Category 3</div>
+        <div class="indexCategory__content">
+          <img src="./images/indexCatgory_img_03.png" alt="">
+          <div class="detail">
+            <div class="text">
+              <h1>
+                Showa<br/>
+                Cultural<br/>
+                Life
+              </h1>
+              <h2>
+                日治昭和文化生活
+              </h2>
+            </div>
+            <img src="./images/btn--link.svg" alt="" class="button">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer">
+      <div class="borderArea">
+        <div class="footer__info">
+          <img src="./images/logo--footer.svg" alt="" class="footerLogo">
+          <ul class="contactList">
+            <li>電話：(02)2621-2830</li>
+            <li>地址：251015新北市淡水區中正路一段6巷32之2號(行政中心)</li>
+            <li>Email：tpc36112@ntpc.gov.tw</li>
+            <li>內容更新：2025-10-24</li>
+          </ul>
+        </div>
+        <div class="socialLink">
+          <ul class="socialLinkList">
+            <li><a href=""><img src="./images/icon--home.svg" alt=""></a></li>
+            <li><a href=""><img src="./images/icon--fb.svg" alt=""></a></li>
+            <li><a href=""><img src="./images/icon--ig.svg" alt=""></a></li>
+          </ul>
+          <span class="copyright">© 2025 All rights reserved.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+<script type="module" src="./js/index.js"></script>
+</html>

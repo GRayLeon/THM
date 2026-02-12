@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>THM | 新北市立淡水古蹟博物館</title>
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+  <div id="app">
+    <div class="header">
+      <div class="headerArea">
+        <img src="./images/logo.svg" alt="" class="logo">
+        <img src="./images/logo--mobile.svg" alt="" class="logo logo--mobile">
+        <div class="navArea" :class="{ 'open': isOpenNav }">
+          <ul class="mainNav">
+            <li><a href="">世界遺產文化路徑</a></li>
+            <li><a href="">清法戰爭歷史現場</a></li>
+            <li><a href="">日治昭和文化生活</a></li>
+          </ul>
+          <ul class="optionNav">
+            <li @click="openSearchArea()">
+              <img src="./images/icon--search.svg" alt="" class="search">
+              <div class="searchInput">
+                <input type="text" placeholder="請輸入搜尋內容">
+                <img src="./images/icon--search.svg" alt="">
+              </div>
+            </li>
+            <li><img src="./images/icon--lan.svg" alt="" class="lan"><span>EN</span></li>
+          </ul>
+        </div>
+        <div class="openNav" @click="toogleNav()">
+          <img src="./images/btn--menu.svg" />
+        </div>
+      </div>
+      <div class="searchArea" :class="{ 'open': isOpenSearch }">
+        <div class="searchInput">
+          <input type="text" placeholder="請輸入搜尋內容">
+          <img src="./images/icon--search.svg" alt="">
+        </div>
+        <img @click="closeSearchArea()" src="./images/btn--close.svg" alt="" class="close">
+      </div>
+    </div>
+    <div class="content">
+      <div class="positionBanner">
+        <div class="positionBanner__content">
+          <div class="line">
+            <div class="positionBanner__card" v-if="currentPostion" @click="go('./positionInside.html', { positionId: currentPostion.id})">
+              <img :src="currentPostion?.imageUrl ?? undefined" alt="">
+              <div class="title">{{ currentPostion?.title ?? '' }}</div></div>
+          </div>
+          <div class="detail">
+            <div class="titleArea">
+              <div class="pattern"></div>
+              <div class="title">
+                <h1>
+                  World<br/>
+                  Heritage<br/>
+                  Route
+                </h1>
+              <h2>世界遺產文化路徑</h2>
+              </div>
+            </div>
+            <div class="description">
+              <p>
+                透過建築、景觀與城市紋理串起淡水的世界文化脈絡，帶領使用者理解這片土地如何在多重時代中形成獨特的歷史定位。
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="positionBanner__map" id="map"></div>
+        <div class="btn--zoom zoom-in">
+          <img src="./images/btn--zoomIn.svg" alt="">
+        </div>
+        <div class="btn--zoom zoom-out">
+          <img src="./images/btn--zoomOut.svg" alt="">
+        </div>
+      </div>
+      <div class="positionList">
+        <div class="positionList__item">
+          <div class="wrapper">
+            <ul>
+              <li>
+                <div class="image">
+                  <img src="./images/position__img__01.png" alt="">
+                </div>
+                <div class="option">
+                  <div class="optionArea">
+                    <div class="title">
+                      淡水紅毛城
+                    </div>
+                    <a href=""><img src="./images/btn--link--y.svg" alt="" class="button"></a>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div class="image">
+                  <img src="./images/position__img__02.png" alt="">
+                </div>
+                <div class="option">
+                  <div class="optionArea">
+                    <div class="title">
+                      前清淡水關稅務司官邸
+                    </div>
+                    <a href=""><img src="./images/btn--link--y.svg" alt="" class="button"></a>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="positionList__item">
+          <div class="wrapper">
+            <ul>
+              <li>
+                <div class="image">
+                  <img src="./images/position__img__03.png" alt="">
+                </div>
+                <div class="option">
+                  <div class="optionArea">
+                    <div class="title">
+                      淡水海關碼頭
+                    </div>
+                    <a href=""><img src="./images/btn--link--y.svg" alt="" class="button"></a>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div class="image">
+                  <img src="./images/position__img__04.png" alt="">
+                </div>
+                <div class="option">
+                  <div class="optionArea">
+                    <div class="title">
+                      理學堂大書院
+                    </div>
+                    <a href=""><img src="./images/btn--link--y.svg" alt="" class="button"></a>
+                    </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="positionList__item">
+          <div class="wrapper">
+            <ul>
+              <li>
+                <div class="image">
+                  <img src="./images/position__img__05.png" alt="">
+                </div>
+                <div class="option">
+                  <div class="optionArea">
+                    <div class="title">
+                      滬尾偕醫館
+                    </div>
+                    <a href=""><img src="./images/btn--link--y.svg" alt="" class="button"></a>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer">
+      <div class="borderArea">
+        <div class="footer__info">
+          <img src="./images/logo--footer.svg" alt="" class="footerLogo">
+          <ul class="contactList">
+            <li>電話：(02)2621-2830</li>
+            <li>地址：251015新北市淡水區中正路一段6巷32之2號(行政中心)</li>
+            <li>Email：tpc36112@ntpc.gov.tw</li>
+            <li>內容更新：2025-10-24</li>
+          </ul>
+        </div>
+        <div class="socialLink">
+          <ul class="socialLinkList">
+            <li><a href=""><img src="./images/icon--home.svg" alt=""></a></li>
+            <li><a href=""><img src="./images/icon--fb.svg" alt=""></a></li>
+            <li><a href=""><img src="./images/icon--ig.svg" alt=""></a></li>
+          </ul>
+          <span class="copyright">© 2025 All rights reserved.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+<script async
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB4dKBpNDKqdDti07WfUB7MzLQ366OYJ6I">
+</script>
+<script type="module" src="./js/position.js"></script>
+</html>

@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>THM | 新北市立淡水古蹟博物館</title>
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+  <div id="app">
+    <div class="header">
+      <div class="headerArea">
+        <img src="./images/logo.svg" alt="" class="logo">
+        <img src="./images/logo--mobile.svg" alt="" class="logo logo--mobile">
+        <div class="navArea" :class="{ 'open': isOpenNav }">
+          <ul class="mainNav">
+            <li><a href="">世界遺產文化路徑</a></li>
+            <li><a href="">清法戰爭歷史現場</a></li>
+            <li><a href="">日治昭和文化生活</a></li>
+          </ul>
+          <ul class="optionNav">
+            <li @click="openSearchArea()">
+              <img src="./images/icon--search.svg" alt="" class="search">
+              <div class="searchInput">
+                <input type="text" placeholder="請輸入搜尋內容">
+                <img src="./images/icon--search.svg" alt="">
+              </div>
+            </li>
+            <li><img src="./images/icon--lan.svg" alt="" class="lan"><span>EN</span></li>
+          </ul>
+        </div>
+        <div class="openNav" @click="toogleNav()">
+          <img src="./images/btn--menu.svg" />
+        </div>
+      </div>
+      <div class="searchArea" :class="{ 'open': isOpenSearch }">
+        <div class="searchInput">
+          <input type="text" placeholder="請輸入搜尋內容">
+          <img src="./images/icon--search.svg" alt="">
+        </div>
+        <img @click="closeSearchArea()" src="./images/btn--close.svg" alt="" class="close">
+      </div>
+    </div>
+    <div class="content">
+      <div class="positionInsideBanner">
+        <div class="positionInsideBanner__content">
+          <div class="line"></div>
+          <div class="detail">
+            <div class="title">
+              <div class="number">登陸號｜197005</div>
+              <h1>淡水紅毛城</h1>
+            </div>
+          </div>
+        </div>
+        <img src="./images/position__inside__01.png" alt="">
+      </div>
+      <div class="positionInsideContent">
+        <div class="info">
+          <div class="wrapper">
+            <div class="back" @click="go('./position.html', { positionId: '002' })">
+              <img src="./images/icon--back.svg" alt="" class="back">
+              返回世界遺產文化路徑
+            </div>
+            <div class="shareLink">
+              <span>分享資訊</span>
+              <ul>
+                <li><img src="./images//icon--fb--border.svg" alt=""></li>
+                <li><img src="./images//icon--line--border.svg" alt=""></li>
+                <li><img src="./images//icon--link--border.svg" alt=""></li>
+                <li class="mobileBtn"><img src="./images//btn--share.svg" alt=""></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="positionInside720">
+          <div class="positionInside720Area">
+            <div class="wrapper">
+              <iframe src="" frameborder="0"></iframe>
+            </div>
+          </div>
+          <h3>720° 環景導覽</h3>
+        </div>
+        <div class="positionInsideDetail">
+          <div class="title">
+            <div class="wrapper">
+              <span>Introduce</span>
+            </div>
+          </div>
+          <div class="detailModule doublePic">
+            <div class="wrapper">
+              <div class="picCard">
+                <div class="image">
+                  <img src="./images/position__img__01.png" alt="">
+                </div>
+                <div class="title">
+                  <div class="titleArea">
+                    淡水紅毛城
+                  </div>
+                </div>
+              </div>
+              <div class="picCard">
+                <div class="image">
+                  <img src="./images/position__img__01.png" alt="">
+                </div>
+                <div class="title">
+                  <div class="titleArea">
+                    淡水紅毛城
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="detailModule singlePic">
+            <div class="wrapper">
+              <div class="picCard">
+                <div class="image">
+                  <img src="./images/position__img__01.png" alt="">
+                </div>
+                <div class="title">
+                  <div class="titleArea">
+                    淡水紅毛城
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="detailModule editor">
+            <div class="wrapper">
+              <div class="borderArea">
+                <div class="head_1">
+                  <span>一座被歷史反覆使用的建築</span>
+                </div>
+                <div class="head_2">
+                  <span>從軍事據點到外交官邸</span>
+                </div>
+                <div class="head_3">
+                  <span>紅磚、海風與地理位置的意義</span>
+                </div>
+                <div class="paragraph">
+                  <p>紅毛城坐落於淡水河口制高點，面向出海航道，背靠丘陵。這樣的選址並非偶然，而是精準回應當時的軍事與貿易需求。厚實的紅磚牆、有限的開口、居高臨下的視野，都讓建築本身成為一種權力的象徵。今日再回看這些設計，會發現它們不只是防禦機制，更是一種時代對「控制」與「安全」的具體想像。紅毛城坐落於淡水河口制高點，面向出海航道，背靠丘陵。這樣的選址並非偶然，而是精準回應當時的軍事與貿易需求。厚實的紅磚牆、有限的開口、居高臨下的視野，都讓建築本身成為一種權力的象徵。今日再回看這些設計，會發現它們不只是防禦機制，更是一種時代對「控制」與「安全」的具體想像。</p>
+                </div>
+                <div class="quote">
+                  <span>「紅毛城不是靜止的歷史，而是一座被反覆使用、反覆詮釋的建築。」</span>
+                </div>
+                <div class="textLink">
+                  <a>淡水古蹟博物館官方網站</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="detailModule image-text image-left">
+            <div class="wrapper">
+              <div class="text">
+                <div class="title">
+                  為什麼紅毛城仍然重要
+                </div>
+                <p>
+                  紅毛城的價值，不只在於它保存得多完整，而在於它提醒我們：<br />
+                  台灣的歷史從來不是單線敘事，而是多方勢力交錯、留下痕跡後又被下一個時代接手。理解紅毛城，其實是在理解台灣如何一步步成為現在的樣子。
+                </p>
+              </div>
+              <div class="image">
+                <img src="./images/position__img__01.png" alt="">
+              </div>
+            </div>
+          </div>
+          <div class="detailModule image-text image-right">
+            <div class="wrapper">
+              <div class="image">
+                <img src="./images/position__img__01.png" alt="">
+              </div>
+              <div class="text">
+                <div class="title">
+                  為什麼紅毛城仍然重要
+                </div>
+                <p>
+                  紅毛城的價值，不只在於它保存得多完整，而在於它提醒我們：<br />
+                  台灣的歷史從來不是單線敘事，而是多方勢力交錯、留下痕跡後又被下一個時代接手。理解紅毛城，其實是在理解台灣如何一步步成為現在的樣子。
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="detailModule video">
+            <div class="wrapper">
+              <div class="videoArea">
+                <iframe src="" frameborder="0"></iframe>
+              </div>
+              <div class="title">
+                <div class="titleArea">
+                  淡水紅毛城
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="detailModule slider">
+            <div class="wrapper">
+              <div class="sliderArea">
+                <div class="sliderItem">
+                  <div class="image">
+                    <img src="./images/position__img__01.png" alt="">
+                  </div>
+                  <div class="title">
+                    <div class="titleArea">
+                      淡水紅毛城
+                    </div>
+                  </div>
+                </div>
+                <div class="sliderItem">
+                  <div class="image">
+                    <img src="./images/position__img__02.png" alt="">
+                  </div>
+                  <div class="title">
+                    <div class="titleArea">
+                      淡水紅毛城
+                    </div>
+                  </div>
+                </div>
+                <div class="sliderItem">
+                  <div class="image">
+                    <img src="./images/position__img__03.png" alt="">
+                  </div>
+                  <div class="title">
+                    <div class="titleArea">
+                      淡水紅毛城
+                    </div>
+                  </div>
+                </div>
+                <div class="sliderItem">
+                  <div class="image">
+                    <img src="./images/position__img__04.png" alt="">
+                  </div>
+                  <div class="title">
+                    <div class="titleArea">
+                      淡水紅毛城
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer">
+      <div class="borderArea">
+        <div class="footer__info">
+          <img src="./images/logo--footer.svg" alt="" class="footerLogo">
+          <ul class="contactList">
+            <li>電話：(02)2621-2830</li>
+            <li>地址：251015新北市淡水區中正路一段6巷32之2號(行政中心)</li>
+            <li>Email：tpc36112@ntpc.gov.tw</li>
+            <li>內容更新：2025-10-24</li>
+          </ul>
+        </div>
+        <div class="socialLink">
+          <ul class="socialLinkList">
+            <li><a href=""><img src="./images/icon--home.svg" alt=""></a></li>
+            <li><a href=""><img src="./images/icon--fb.svg" alt=""></a></li>
+            <li><a href=""><img src="./images/icon--ig.svg" alt=""></a></li>
+          </ul>
+          <span class="copyright">© 2025 All rights reserved.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+<script type="module" src="./js/positionInside.js"></script>
+</html>
