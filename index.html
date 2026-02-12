@@ -10,7 +10,7 @@
   <div id="app">
     <div class="header">
       <div class="headerArea">
-        <img src="./images/logo.svg" alt="" class="logo">
+        <img src="./images/logo.svg" alt="" class="logo" @click="go('./index.html')">
         <img src="./images/logo--mobile.svg" alt="" class="logo logo--mobile">
         <div class="navArea" :class="{ 'open': isOpenNav }">
           <ul class="mainNav">
@@ -92,7 +92,7 @@
                 世界遺產文化路徑
               </h2>
             </div>
-            <img @click="go(`./position.html`, { categoryId: 1 })" src="./images/btn--link.svg" alt="" class="button" />
+            <img @click="go(`./position.html`, { categoryId: '001' })" src="./images/btn--link.svg" alt="" class="button" />
           </div>
         </div>
       </div>
@@ -110,7 +110,7 @@
                 清法戰爭歷史現場
               </h2>
             </div>
-            <img @click="go(`./position.html`, { categoryId: 2 })" src="./images/btn--link.svg" alt="" class="button">
+            <img @click="go(`./position.html`, { categoryId: '002' })" src="./images/btn--link.svg" alt="" class="button">
           </div>
         </div>
       </div>
@@ -129,7 +129,7 @@
                 日治昭和文化生活
               </h2>
             </div>
-            <img @click="go(`./position.html`, { categoryId: 3 })" src="./images/btn--link.svg" alt="" class="button">
+            <img @click="go(`./position.html`, { categoryId: '003' })" src="./images/btn--link.svg" alt="" class="button">
           </div>
         </div>
       </div>

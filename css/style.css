@@ -412,6 +412,7 @@ img {
 }
 .header img.logo {
   height: 35%;
+  cursor: pointer;
 }
 .header img.logo.logo--mobile {
   display: none;
