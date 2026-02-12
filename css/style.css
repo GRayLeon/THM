@@ -1480,6 +1480,7 @@ img {
   background-color: black;
   opacity: 1;
   transition: all 0.3s;
+  cursor: pointer;
 }
 .positionBanner__card img {
   width: 240px;
@@ -1877,6 +1878,7 @@ img {
   flex-direction: row;
   align-items: center;
   gap: 4px;
+  cursor: pointer;
 }
 .positionInsideContent .info .wrapper .back img {
   width: 24px;
