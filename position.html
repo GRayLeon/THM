@@ -14,9 +14,9 @@
         <img src="./images/logo--mobile.svg" alt="" class="logo logo--mobile">
         <div class="navArea" :class="{ 'open': isOpenNav }">
           <ul class="mainNav">
-            <li><a href="">世界遺產文化路徑</a></li>
-            <li><a href="">清法戰爭歷史現場</a></li>
-            <li><a href="">日治昭和文化生活</a></li>
+            <li><a href="./position.html?categoryId=001">世界遺產文化路徑</a></li>
+            <li><a href="./position.html?categoryId=002">清法戰爭歷史現場</a></li>
+            <li><a href="./position.html?categoryId=003">日治昭和文化生活</a></li>
           </ul>
           <ul class="optionNav">
             <li @click="openSearchArea()">
@@ -45,7 +45,7 @@
       <div class="positionBanner">
         <div class="positionBanner__content">
           <div class="line">
-            <div class="positionBanner__card" v-if="currentPostion" @click="go('./positionInside.html', { positionId: currentPostion.id})">
+            <div class="positionBanner__card" v-if="currentPostion" @click="go('./positionInside.html', { categoryId: currentPostion.categoryId, positionId: currentPostion.id })">
               <img :src="currentPostion?.imageUrl ?? undefined" alt="">
               <div class="title">{{ currentPostion?.title ?? '' }}</div></div>
           </div>
@@ -54,11 +54,11 @@
               <div class="pattern"></div>
               <div class="title">
                 <h1>
-                  World<br/>
-                  Heritage<br/>
-                  Route
+                  <span v-for="title in category.enTitle">{{ title }}</span>
                 </h1>
-              <h2>世界遺產文化路徑</h2>
+                <h2>
+                  {{ category.title }}
+                </h2>
               </div>
             </div>
             <div class="description">
@@ -77,83 +77,19 @@
         </div>
       </div>
       <div class="positionList">
-        <div class="positionList__item">
+        <div class="positionList__item" v-for="positions in groupedPositions">
           <div class="wrapper">
             <ul>
-              <li>
+              <li v-for="position in positions">
                 <div class="image">
-                  <img src="./images/position__img__01.png" alt="">
+                  <img :src="position?.imageUrl ?? undefined" alt="">
                 </div>
                 <div class="option">
                   <div class="optionArea">
                     <div class="title">
-                      淡水紅毛城
+                      {{ position?.title ?? '' }}
                     </div>
-                    <a href=""><img src="./images/btn--link--y.svg" alt="" class="button"></a>
-                  </div>
-                </div>
-              </li>
-              <li>
-                <div class="image">
-                  <img src="./images/position__img__02.png" alt="">
-                </div>
-                <div class="option">
-                  <div class="optionArea">
-                    <div class="title">
-                      前清淡水關稅務司官邸
-                    </div>
-                    <a href=""><img src="./images/btn--link--y.svg" alt="" class="button"></a>
-                  </div>
-                </div>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div class="positionList__item">
-          <div class="wrapper">
-            <ul>
-              <li>
-                <div class="image">
-                  <img src="./images/position__img__03.png" alt="">
-                </div>
-                <div class="option">
-                  <div class="optionArea">
-                    <div class="title">
-                      淡水海關碼頭
-                    </div>
-                    <a href=""><img src="./images/btn--link--y.svg" alt="" class="button"></a>
-                  </div>
-                </div>
-              </li>
-              <li>
-                <div class="image">
-                  <img src="./images/position__img__04.png" alt="">
-                </div>
-                <div class="option">
-                  <div class="optionArea">
-                    <div class="title">
-                      理學堂大書院
-                    </div>
-                    <a href=""><img src="./images/btn--link--y.svg" alt="" class="button"></a>
-                    </div>
-                </div>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div class="positionList__item">
-          <div class="wrapper">
-            <ul>
-              <li>
-                <div class="image">
-                  <img src="./images/position__img__05.png" alt="">
-                </div>
-                <div class="option">
-                  <div class="optionArea">
-                    <div class="title">
-                      滬尾偕醫館
-                    </div>
-                    <a href=""><img src="./images/btn--link--y.svg" alt="" class="button"></a>
+                    <a :href="`./positionInside.html?categoryId=${position?.categoryId ?? ''}&positionId=${position?.id ?? ''}`"><img src="./images/btn--link--y.svg" alt="" class="button"></a>
                   </div>
                 </div>
               </li>

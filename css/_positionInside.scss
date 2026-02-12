@@ -192,6 +192,32 @@
   }
 }
 
+.backBtn {
+  &Area {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding-bottom: 84px;
+  }
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 4px;
+  width: auto;
+  padding: 16px 28px;
+  color: white;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.6;
+  border-radius: 12px;
+  background-color: #C5A27A;
+  cursor: pointer;
+  > img {
+    width: 24px;
+  }
+}
+
 .positionInsideDetail {
   display: flex;
   flex-direction: column;

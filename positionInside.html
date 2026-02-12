@@ -14,9 +14,9 @@
         <img src="./images/logo--mobile.svg" alt="" class="logo logo--mobile">
         <div class="navArea" :class="{ 'open': isOpenNav }">
           <ul class="mainNav">
-            <li><a href="">世界遺產文化路徑</a></li>
-            <li><a href="">清法戰爭歷史現場</a></li>
-            <li><a href="">日治昭和文化生活</a></li>
+            <li><a href="./position.html?categoryId=001">世界遺產文化路徑</a></li>
+            <li><a href="./position.html?categoryId=002">清法戰爭歷史現場</a></li>
+            <li><a href="./position.html?categoryId=003">日治昭和文化生活</a></li>
           </ul>
           <ul class="optionNav">
             <li @click="openSearchArea()">
@@ -47,19 +47,19 @@
           <div class="line"></div>
           <div class="detail">
             <div class="title">
-              <div class="number">登陸號｜197005</div>
-              <h1>淡水紅毛城</h1>
+              <div class="number">登陸號｜{{ positionId }}</div>
+              <h1>{{ position.title }}</h1>
             </div>
           </div>
         </div>
-        <img src="./images/position__inside__01.png" alt="">
+        <img :src="position.imageUrl" alt="">
       </div>
       <div class="positionInsideContent">
         <div class="info">
           <div class="wrapper">
-            <div class="back" @click="go('./position.html', { positionId: '002' })">
+            <div class="back" @click="go('./position.html', { categoryId: categoryId })">
               <img src="./images/icon--back.svg" alt="" class="back">
-              返回世界遺產文化路徑
+              返回{{ category.title }}
             </div>
             <div class="shareLink">
               <span>分享資訊</span>
@@ -237,6 +237,12 @@
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+        <div class="backBtnArea">
+          <div class="backBtn" @click="go(`./position.html`, { categoryId: categoryId })">
+            <img src="./images/icon--back--w.svg" alt="">
+            返回{{ category.title }}
           </div>
         </div>
       </div>

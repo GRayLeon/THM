@@ -1,6 +1,6 @@
 import { ref, onMounted } from 'https://unpkg.com/vue@3/dist/vue.esm-browser.prod.js'
 import { getQueryParam } from '../utils/getQueryParams.js'
-import { mapStyle } from '../constants/mapStyle.js'
+import { createMapStyle } from '../constants/mapStyle.js'
 import { positionList } from '../mock/position.js'
 
 let googleMapsPromise = null
@@ -111,25 +111,25 @@ export function useGoogleMap() {
 
     await loadGoogleMaps()
 
-    const positionId = getQueryParam('positionId') || 'default'
+    const categoryId = getQueryParam('categoryId')
 
     // TODO: 透過 API 取得
-    const position = positionList.find(
-      item => item.positionId === positionId
+    const category = positionList.find(
+      item => item.categoryId === categoryId
     )
 
-    if (!position) return
+    if (!categoryId) return
 
     const map = new google.maps.Map(mapContainer, {
-      center: position.center,
+      center: category.center,
       zoom: 15,
-      styles: mapStyle,
+      styles: createMapStyle(category.keyColor),
       disableDefaultUI: true,
       gestureHandling: 'greedy',
     })
 
     setupCustomZoom(map)
 
-    createMarkers(map, position.markers)
+    createMarkers(map, category.markers)
   })
 }
