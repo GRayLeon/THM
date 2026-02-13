@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>THM | 新北市立淡水古蹟博物館</title>
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+  <div id="app">
+    <div class="header">
+      <div class="headerArea">
+        <img src="./images/logo.svg" alt="" class="logo" @click="go('./index.html')">
+        <img src="./images/logo--mobile.svg" alt="" class="logo logo--mobile">
+        <div class="navArea" :class="{ 'open': isOpenNav }">
+          <ul class="mainNav">
+            <li><a href="./position.html?categoryId=001">世界遺產文化路徑</a></li>
+            <li><a href="./position.html?categoryId=002">清法戰爭歷史現場</a></li>
+            <li><a href="./position.html?categoryId=003">日治昭和文化生活</a></li>
+          </ul>
+          <ul class="optionNav">
+            <li @click="openSearchArea()">
+              <img src="./images/icon--search.svg" alt="" class="search">
+              <div class="searchInput">
+                <input type="text" placeholder="請輸入搜尋內容">
+                <img src="./images/icon--search.svg" alt="">
+              </div>
+            </li>
+            <li><img src="./images/icon--lan.svg" alt="" class="lan"><span>EN</span></li>
+          </ul>
+        </div>
+        <div class="openNav" @click="toogleNav()">
+          <img src="./images/btn--menu.svg" />
+        </div>
+      </div>
+      <div class="searchArea" :class="{ 'open': isOpenSearch }">
+        <div class="searchInput">
+          <input type="text" placeholder="請輸入搜尋內容">
+          <img src="./images/icon--search.svg" alt="">
+        </div>
+        <img @click="closeSearchArea()" src="./images/btn--close.svg" alt="" class="close">
+      </div>
+    </div>
+    <div class="content">
+      <div class="searchBanner">
+        <img src="./images/position__inside__01.png" alt="">
+          <div class="searchBanner__content">
+          <div class="detail">
+            <div class="title">搜尋結果</div>
+          </div>
+        </div>
+      </div>
+      <div class="searchContent">
+        <div class="searchInput">
+          <input type="text" placeholder="請輸入搜尋內容">
+          <img src="./images/icon--search--b.svg" alt="">
+        </div>
+        <div class="searchInfo">
+          <div class="wrapper">
+            搜尋結果，符合「淡水」條件：共 4 筆
+          </div>
+        </div>
+        <div class="searchResult">
+          <ul>
+            <li>
+              <div class="wrapper">
+                <div class="image">
+                  <img src="./images/position__inside__01.png" alt="">
+                </div>
+                <div class="textArea">
+                  <div class="text">
+                    <div class="title">淡水紅毛城</div>
+                    <div class="description">
+                      <p>
+                        紅毛城最初由西班牙人在 1629 年建立，後由荷蘭人接收並重建，作為控制淡水河口的重要軍事據點。清代之後，城堡轉為英國領事館使用，直到二戰後才正式回歸台灣，成為今日的文化資產。建築形式也因此混合了防禦工事、殖民官邸與近代行政空間的特徵，使紅毛城不只是「古老」，而是功能不斷被重寫的空間。
+                      </p>
+                    </div>
+                  </div>
+                  <img @click="go('./positionInside.html', { categoryId: '002' , positionId: '001' })" src="./images/btn--link--y.svg" alt="" class="btn">
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="wrapper">
+                <div class="image">
+                  <img src="./images/position__inside__01.png" alt="">
+                </div>
+                <div class="textArea">
+                  <div class="text">
+                    <div class="title">淡水紅毛城</div>
+                    <div class="description">
+                      <p>
+                        紅毛城最初由西班牙人在 1629 年建立，後由荷蘭人接收並重建，作為控制淡水河口的重要軍事據點。清代之後，城堡轉為英國領事館使用，直到二戰後才正式回歸台灣，成為今日的文化資產。建築形式也因此混合了防禦工事、殖民官邸與近代行政空間的特徵，使紅毛城不只是「古老」，而是功能不斷被重寫的空間。
+                      </p>
+                    </div>
+                  </div>
+                  <img @click="go('./positionInside.html', { categoryId: '002' , positionId: '001' })" src="./images/btn--link--y.svg" alt="" class="btn">
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="wrapper">
+                <div class="image">
+                  <img src="./images/position__inside__01.png" alt="">
+                </div>
+                <div class="textArea">
+                  <div class="text">
+                    <div class="title">淡水紅毛城</div>
+                    <div class="description">
+                      <p>
+                        紅毛城最初由西班牙人在 1629 年建立，後由荷蘭人接收並重建，作為控制淡水河口的重要軍事據點。清代之後，城堡轉為英國領事館使用，直到二戰後才正式回歸台灣，成為今日的文化資產。建築形式也因此混合了防禦工事、殖民官邸與近代行政空間的特徵，使紅毛城不只是「古老」，而是功能不斷被重寫的空間。
+                      </p>
+                    </div>
+                  </div>
+                  <img @click="go('./positionInside.html', { categoryId: '002' , positionId: '001' })" src="./images/btn--link--y.svg" alt="" class="btn">
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="wrapper">
+                <div class="image">
+                  <img src="./images/position__inside__01.png" alt="">
+                </div>
+                <div class="textArea">
+                  <div class="text">
+                    <div class="title">淡水紅毛城</div>
+                    <div class="description">
+                      <p>
+                        紅毛城最初由西班牙人在 1629 年建立，後由荷蘭人接收並重建，作為控制淡水河口的重要軍事據點。清代之後，城堡轉為英國領事館使用，直到二戰後才正式回歸台灣，成為今日的文化資產。建築形式也因此混合了防禦工事、殖民官邸與近代行政空間的特徵，使紅毛城不只是「古老」，而是功能不斷被重寫的空間。
+                      </p>
+                    </div>
+                  </div>
+                  <img @click="go('./positionInside.html', { categoryId: '002' , positionId: '001' })" src="./images/btn--link--y.svg" alt="" class="btn">
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer">
+      <div class="borderArea">
+        <div class="footer__info">
+          <img src="./images/logo--footer.svg" alt="" class="footerLogo">
+          <ul class="contactList">
+            <li>電話：(02)2621-2830</li>
+            <li>地址：251015新北市淡水區中正路一段6巷32之2號(行政中心)</li>
+            <li>Email：tpc36112@ntpc.gov.tw</li>
+            <li>內容更新：2025-10-24</li>
+          </ul>
+        </div>
+        <div class="socialLink">
+          <ul class="socialLinkList">
+            <li><a href=""><img src="./images/icon--home.svg" alt=""></a></li>
+            <li><a href=""><img src="./images/icon--fb.svg" alt=""></a></li>
+            <li><a href=""><img src="./images/icon--ig.svg" alt=""></a></li>
+          </ul>
+          <span class="copyright">© 2025 All rights reserved.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+<script type="module" src="./js/search.js"></script>
+</html>
