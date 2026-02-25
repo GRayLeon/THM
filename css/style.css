@@ -413,6 +413,9 @@ a:hover {
   max-width: 100%;
   max-height: calc(100% - 160px);
 }
+.slideBox .image img {
+  width: 100%;
+}
 .slideBox .close {
   position: absolute;
   top: 24px;
@@ -424,6 +427,12 @@ a:hover {
   opacity: 0.6;
 }
 
+@media (width <= 768px) {
+  .slideBox .image {
+    max-width: calc(100% - 40px);
+    max-height: 100%;
+  }
+}
 .header {
   position: sticky;
   top: 0;
@@ -1411,6 +1420,11 @@ a:hover {
 .positionBanner__map {
   width: 100%;
   height: 100vh;
+  opacity: 0;
+  transition: 0.3s ease-in-out;
+}
+.positionBanner__map.ready {
+  opacity: 1;
 }
 .positionBanner__content {
   position: sticky;
@@ -1547,6 +1561,12 @@ a:hover {
   background-color: black;
   opacity: 1;
   transition: all 0.3s;
+  opacity: 0;
+}
+.positionBanner__card.show {
+  opacity: 1;
+}
+.positionBanner__card {
   cursor: pointer;
 }
 .positionBanner__card img {
@@ -2066,6 +2086,7 @@ a:hover {
 }
 
 .positionInsideDetail {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -2100,6 +2121,22 @@ a:hover {
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
+}
+.positionInsideDetail .progressBar {
+  position: sticky;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  width: 100%;
+  height: 6px;
+  z-index: 99;
+}
+.positionInsideDetail .progressBar .bar {
+  width: 0;
+  height: 100%;
+  background-color: #E45B23;
 }
 
 .detailModule {
@@ -2531,6 +2568,34 @@ a:hover {
   opacity: 0.4 !important;
 }
 
+.toastArea {
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+}
+.toastArea .toast {
+  padding: 12px 24px;
+  border-radius: 4px;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.8);
+  opacity: 0;
+  transform: translateY(-24px);
+}
+.toastArea.open {
+  display: flex;
+}
+.toastArea.open .toast {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 @media (width <= 768px) {
   .positionInsideBanner::after {
     z-index: 99;
@@ -2689,6 +2754,20 @@ a:hover {
     left: calc(50% - 30px);
     width: 60px;
     height: 60px;
+  }
+  .detailModule.slider .sliderArea {
+    width: calc(100% + 24px);
+    padding: 0 12px;
+    margin-left: -12px;
+  }
+  .detailModule.slider .swiper-button-next, .detailModule.slider .swiper-button-prev {
+    top: 108px;
+    width: 24px;
+    height: 24px;
+    border-radius: 24px;
+    background-color: transparent;
+    background-size: 24px 24px;
+    background-color: white;
   }
 }
 .searchBanner {

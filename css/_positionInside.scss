@@ -232,6 +232,7 @@
 }
 
 .positionInsideDetail {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -264,6 +265,22 @@
           background-repeat: no-repeat;
         }
       }
+    }
+  }
+  .progressBar {
+    position: sticky;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    width: 100%;
+    height: 6px;
+    z-index: 99;
+    .bar {
+      width: 0;
+      height: 100%;
+      background-color: #E45B23;
     }
   }
 }
@@ -719,6 +736,34 @@
   }
 }
 
+ .toastArea {
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  .toast {
+    padding: 12px 24px;
+    border-radius: 4px;
+    color: white;
+    background-color: rgba(0, 0, 0, .8);
+    opacity: 0;
+    transform: translateY(-24px);
+  }
+  &.open {
+    display: flex;
+    .toast {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+ }
+
 @media ( width <= 768px ) {
   .positionInsideBanner {
     &::after {
@@ -904,6 +949,24 @@
           width: 60px;
           height: 60px;
         }
+      }
+    }
+
+    &.slider {
+      .sliderArea {
+        width: calc( 100% + 24px );
+        padding: 0 12px;
+        margin-left: -12px;
+      }
+    
+      .swiper-button-next, .swiper-button-prev {
+        top: 108px;
+        width: 24px;
+        height: 24px;
+        border-radius: 24px;
+        background-color: transparent;
+        background-size: 24px 24px;
+        background-color: white;
       }
     }
   }

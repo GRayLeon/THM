@@ -69,9 +69,9 @@
             <div class="shareLink">
               <span>分享資訊</span>
               <ul>
-                <li><img src="./images//icon--fb--border.svg" alt=""></li>
-                <li><img src="./images//icon--line--border.svg" alt=""></li>
-                <li><img src="./images//icon--link--border.svg" alt=""></li>
+                <li @click="shareLink('fb')"><img src="./images//icon--fb--border.svg" alt=""></li>
+                <li @click="shareLink('line')"><img src="./images//icon--line--border.svg" alt=""></li>
+                <li @click="shareLink('link')"><img src="./images//icon--link--border.svg" alt=""></li>
                 <li class="mobileBtn"><img src="./images//btn--share.svg" alt=""></li>
               </ul>
             </div>
@@ -277,6 +277,9 @@
               </div>
             </div>
           </div>
+          <div class="progressBar">
+            <div class="bar" :style="`width: ${progress}%`"></div>
+          </div>
         </div>
         <div class="backBtnArea">
           <div class="backBtn" @click="go(`./position.html`, { categoryId: categoryId })">
@@ -312,6 +315,9 @@
       <div class="image">
         <img :src="tempImageUrl" alt="" />
       </div>
+    </div>
+    <div class="toastArea" :class="{ 'open': isCopied }">
+      <div class="toast">網址已複製</div>
     </div>
   </div>
 </body>

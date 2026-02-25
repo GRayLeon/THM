@@ -7,6 +7,8 @@ import { useSearchArea } from './composables/useSearchArea.js'
 import { useNavOpen } from './composables/useNavOpen.js'
 import { positionList } from './mock/position.js'
 import { useSlideBox } from './composables/useSlideBox.js'
+import { useProgressBar } from './composables/useProgressBar.js'
+import { shareLink, isCopied } from './composables/useShareLink.js'
 
 createApp({
   setup() {
@@ -29,11 +31,19 @@ createApp({
     })
 
     const { openBox, closeBox, isOpenBox, tempImageUrl } = useSlideBox()
+
+    const { progress } = useProgressBar()
     
     onMounted(() => {
       const swiper = new window.Swiper('.swiper', {
-        slidesPerView: 4,
+        slidesPerView: 1,
         spaceBetween: 24,
+        breakpoints: {
+          768: {
+            slidesPerView: 4,
+            spaceBetween: 24,
+          },
+        },
         speed: 600,
         navigation: {
           nextEl: ".swiper-button-next",
@@ -42,6 +52,6 @@ createApp({
       })
     })
 
-    return { go, isOpenSearch, openSearchArea, closeSearchArea, isOpenNav, toogleNav, categoryId, positionId, category, position, openBox, closeBox, isOpenBox, tempImageUrl }
+    return { go, isOpenSearch, openSearchArea, closeSearchArea, isOpenNav, toogleNav, categoryId, positionId, category, position, openBox, closeBox, isOpenBox, tempImageUrl, progress, shareLink, isCopied }
   }
 }).mount('#app')

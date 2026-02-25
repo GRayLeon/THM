@@ -5,6 +5,8 @@ import { positionList } from '../mock/position.js'
 
 let googleMapsPromise = null
 
+export const isMapReady = ref(false)
+
 
 // 確保 map api 已載入
 function loadGoogleMaps() {
@@ -131,5 +133,7 @@ export function useGoogleMap() {
     setupCustomZoom(map)
 
     createMarkers(map, category.markers)
+
+    isMapReady.value = true
   })
 }

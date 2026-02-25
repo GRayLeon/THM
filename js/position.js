@@ -2,7 +2,7 @@ import { computed, createApp } from 'https://unpkg.com/vue@3/dist/vue.esm-browse
 
 import { useHeaderOffset } from './composables/useHeaderOffset.js'
 import { usePositionBanner } from './composables/usePositionBanner.js'
-import { useGoogleMap, currentPostion } from './composables/useGoogleMap.js'
+import { useGoogleMap, currentPostion, isMapReady } from './composables/useGoogleMap.js'
 import { useUrl } from './composables/useUrl.js'
 import { getQueryParam } from './utils/getQueryParams.js'
 import { useSearchArea } from './composables/useSearchArea.js'
@@ -43,7 +43,7 @@ const App = {
 
     const { openBox, closeBox, isOpenBox, tempImageUrl } = useSlideBox()
     
-    return { currentPostion, go, isOpenSearch, openSearchArea, closeSearchArea, isOpenNav, toogleNav, groupedPositions, category, openBox, closeBox, isOpenBox, tempImageUrl }
+    return { currentPostion, go, isOpenSearch, openSearchArea, closeSearchArea, isOpenNav, toogleNav, groupedPositions, category, openBox, closeBox, isOpenBox, tempImageUrl, isMapReady }
   }
 }
 

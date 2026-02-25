@@ -47,6 +47,9 @@ a {
   .image {
     max-width: 100%;
     max-height: calc(100% - 160px);
+    img {
+      width: 100%;
+    }
   }
   .close {
     position: absolute;
@@ -56,6 +59,15 @@ a {
     transition: .2s ease-in-out;
     &:hover {
       opacity: .6;
+    }
+  }
+}
+
+@media ( width <= 768px ) {
+  .slideBox {
+    .image {
+      max-width: calc(100% - 40px);
+      max-height: 100%;
     }
   }
 }

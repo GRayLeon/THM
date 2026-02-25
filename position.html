@@ -45,7 +45,7 @@
       <div class="positionBanner">
         <div class="positionBanner__content">
           <div class="line">
-            <div class="positionBanner__card" v-if="currentPostion" @click="go('./positionInside.html', { categoryId: currentPostion.categoryId, positionId: currentPostion.id })">
+            <div class="positionBanner__card" :class="{ 'show': isMapReady }" v-if="currentPostion" @click="go('./positionInside.html', { categoryId: currentPostion.categoryId, positionId: currentPostion.id })">
               <img :src="currentPostion?.imageUrl ?? undefined" alt="">
               <div class="title">{{ currentPostion?.title ?? '' }}</div></div>
           </div>
@@ -68,7 +68,7 @@
             </div>
           </div>
         </div>
-        <div class="positionBanner__map" id="map"></div>
+        <div class="positionBanner__map" id="map" :class="{ 'ready': isMapReady }"></div>
         <div class="btn--zoom zoom-in">
           <img src="./images/btn--zoomIn.svg" alt="">
         </div>
