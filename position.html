@@ -80,7 +80,7 @@
         <div class="positionList__item" v-for="positions in groupedPositions">
           <div class="wrapper">
             <ul>
-              <li v-for="position in positions">
+              <li v-for="position in positions" @click="go(`./positionInside.html?categoryId=${position?.categoryId ?? ''}&positionId=${position?.id ?? ''}`)">
                 <div class="image">
                   <img :src="position?.imageUrl ?? undefined" alt="">
                 </div>
@@ -89,7 +89,7 @@
                     <div class="title">
                       {{ position?.title ?? '' }}
                     </div>
-                    <a :href="`./positionInside.html?categoryId=${position?.categoryId ?? ''}&positionId=${position?.id ?? ''}`"><img src="./images/btn--link--y.svg" alt="" class="button"></a>
+                    <img src="./images/btn--link--y.svg" alt="" class="button">
                   </div>
                 </div>
               </li>
@@ -111,13 +111,19 @@
         </div>
         <div class="socialLink">
           <ul class="socialLinkList">
-            <li><a href=""><img src="./images/icon--home.svg" alt=""></a></li>
+            <li><a target="_blank" href="https://www.tshs.ntpc.gov.tw/"><img src="./images/icon--home.svg" alt=""></a></li>
             <li><a href=""><img src="./images/icon--fb.svg" alt=""></a></li>
             <li><a href=""><img src="./images/icon--ig.svg" alt=""></a></li>
           </ul>
           <span class="copyright">© 2025 All rights reserved.</span>
         </div>
       </div>
+    </div>
+  </div>
+  <div class="slideBox" :class="{ 'open': isOpenBox }">
+    <img src="./images/btn--close--w.svg" alt="" class="close">
+    <div class="image">
+      <img :src="tempImageUrl" alt="" />
     </div>
   </div>
 </body>

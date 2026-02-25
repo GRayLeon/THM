@@ -5,6 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>THM | 新北市立淡水古蹟博物館</title>
   <link rel="stylesheet" href="./css/style.css">
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css"
+  />
+  <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
 </head>
 <body>
   <div id="app">
@@ -89,7 +94,7 @@
           <div class="detailModule doublePic">
             <div class="wrapper">
               <div class="picCard">
-                <div class="image">
+                <div class="image" @click="openBox('./images/position__img__01.png')">
                   <img src="./images/position__img__01.png" alt="">
                 </div>
                 <div class="title">
@@ -99,7 +104,7 @@
                 </div>
               </div>
               <div class="picCard">
-                <div class="image">
+                <div class="image" @click="openBox('./images/position__img__01.png')">
                   <img src="./images/position__img__01.png" alt="">
                 </div>
                 <div class="title">
@@ -113,7 +118,7 @@
           <div class="detailModule singlePic">
             <div class="wrapper">
               <div class="picCard">
-                <div class="image">
+                <div class="image" @click="openBox('./images/position__img__01.png')">
                   <img src="./images/position__img__01.png" alt="">
                 </div>
                 <div class="title">
@@ -159,14 +164,14 @@
                   台灣的歷史從來不是單線敘事，而是多方勢力交錯、留下痕跡後又被下一個時代接手。理解紅毛城，其實是在理解台灣如何一步步成為現在的樣子。
                 </p>
               </div>
-              <div class="image">
-                <img src="./images/position__img__01.png" alt="">
-              </div>
+              <div class="image" @click="openBox('./images/position__img__01.png')">
+                  <img src="./images/position__img__01.png" alt="">
+                </div>
             </div>
           </div>
           <div class="detailModule image-text image-right">
             <div class="wrapper">
-              <div class="image">
+              <div class="image" @click="openBox('./images/position__img__01.png')">
                 <img src="./images/position__img__01.png" alt="">
               </div>
               <div class="text">
@@ -194,47 +199,81 @@
           </div>
           <div class="detailModule slider">
             <div class="wrapper">
-              <div class="sliderArea">
-                <div class="sliderItem">
-                  <div class="image">
-                    <img src="./images/position__img__01.png" alt="">
+              <div class="sliderArea swiper">
+                <div class="swiper-wrapper">
+                  <div class="sliderItem swiper-slide">
+                    <div class="image" @click="openBox('./images/position__img__01.png')">
+                      <img src="./images/position__img__01.png" alt="">
+                    </div>
+                    <div class="title">
+                      <div class="titleArea">
+                        淡水紅毛城
+                      </div>
+                    </div>
                   </div>
-                  <div class="title">
-                    <div class="titleArea">
-                      淡水紅毛城
+                  <div class="sliderItem swiper-slide">
+                    <div class="image" @click="openBox('./images/position__img__01.png')">
+                      <img src="./images/position__img__01.png" alt="">
+                    </div>
+                    <div class="title">
+                      <div class="titleArea">
+                        淡水紅毛城
+                      </div>
+                    </div>
+                  </div>
+                  <div class="sliderItem swiper-slide">
+                    <div class="image" @click="openBox('./images/position__img__01.png')">
+                      <img src="./images/position__img__01.png" alt="">
+                    </div>
+                    <div class="title">
+                      <div class="titleArea">
+                        淡水紅毛城
+                      </div>
+                    </div>
+                  </div>
+                  <div class="sliderItem swiper-slide">
+                    <div class="image" @click="openBox('./images/position__img__01.png')">
+                      <img src="./images/position__img__01.png" alt="">
+                    </div>
+                    <div class="title">
+                      <div class="titleArea">
+                        淡水紅毛城
+                      </div>
+                    </div>
+                  </div>
+                  <div class="sliderItem swiper-slide">
+                    <div class="image" @click="openBox('./images/position__img__01.png')">
+                      <img src="./images/position__img__01.png" alt="">
+                    </div>
+                    <div class="title">
+                      <div class="titleArea">
+                        淡水紅毛城
+                      </div>
+                    </div>
+                  </div>
+                  <div class="sliderItem swiper-slide">
+                    <div class="image" @click="openBox('./images/position__img__01.png')">
+                      <img src="./images/position__img__01.png" alt="">
+                    </div>
+                    <div class="title">
+                      <div class="titleArea">
+                        淡水紅毛城
+                      </div>
+                    </div>
+                  </div>
+                  <div class="sliderItem swiper-slide">
+                    <div class="image" @click="openBox('./images/position__img__01.png')">
+                      <img src="./images/position__img__01.png" alt="">
+                    </div>
+                    <div class="title">
+                      <div class="titleArea">
+                        淡水紅毛城
+                      </div>
                     </div>
                   </div>
                 </div>
-                <div class="sliderItem">
-                  <div class="image">
-                    <img src="./images/position__img__02.png" alt="">
-                  </div>
-                  <div class="title">
-                    <div class="titleArea">
-                      淡水紅毛城
-                    </div>
-                  </div>
-                </div>
-                <div class="sliderItem">
-                  <div class="image">
-                    <img src="./images/position__img__03.png" alt="">
-                  </div>
-                  <div class="title">
-                    <div class="titleArea">
-                      淡水紅毛城
-                    </div>
-                  </div>
-                </div>
-                <div class="sliderItem">
-                  <div class="image">
-                    <img src="./images/position__img__04.png" alt="">
-                  </div>
-                  <div class="title">
-                    <div class="titleArea">
-                      淡水紅毛城
-                    </div>
-                  </div>
-                </div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
               </div>
             </div>
           </div>
@@ -260,12 +299,18 @@
         </div>
         <div class="socialLink">
           <ul class="socialLinkList">
-            <li><a href=""><img src="./images/icon--home.svg" alt=""></a></li>
+            <li><a target="_blank" href="https://www.tshs.ntpc.gov.tw/"><img src="./images/icon--home.svg" alt=""></a></li>
             <li><a href=""><img src="./images/icon--fb.svg" alt=""></a></li>
             <li><a href=""><img src="./images/icon--ig.svg" alt=""></a></li>
           </ul>
           <span class="copyright">© 2025 All rights reserved.</span>
         </div>
+      </div>
+    </div>
+    <div class="slideBox" :class="{ 'open': isOpenBox }">
+      <img src="./images/btn--close--w.svg" alt="" class="close" @click="closeBox()">
+      <div class="image">
+        <img :src="tempImageUrl" alt="" />
       </div>
     </div>
   </div>

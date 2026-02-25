@@ -20,3 +20,42 @@ img {
   width: calc( 100% - 48px );
   max-width: 1200px;
 }
+
+a {
+  cursor: pointer;
+  transition: .2s ease-in-out;
+  &:hover {
+    opacity: .6;
+  }
+}
+
+.slideBox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  background-color: rgba(0, 0, 0, .6);
+  &.open {
+    display: flex;
+  }
+  .image {
+    max-width: 100%;
+    max-height: calc(100% - 160px);
+  }
+  .close {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    cursor: pointer;
+    transition: .2s ease-in-out;
+    &:hover {
+      opacity: .6;
+    }
+  }
+}

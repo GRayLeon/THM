@@ -8,6 +8,7 @@ import { getQueryParam } from './utils/getQueryParams.js'
 import { useSearchArea } from './composables/useSearchArea.js'
 import { useNavOpen } from './composables/useNavOpen.js'
 import { positionList } from './mock/position.js'
+import { useSlideBox } from './composables/useSlideBox.js'
 
 const App = {
   setup() {
@@ -39,8 +40,10 @@ const App = {
 
       return result
     })
+
+    const { openBox, closeBox, isOpenBox, tempImageUrl } = useSlideBox()
     
-    return { currentPostion, go, isOpenSearch, openSearchArea, closeSearchArea, isOpenNav, toogleNav, groupedPositions, category }
+    return { currentPostion, go, isOpenSearch, openSearchArea, closeSearchArea, isOpenNav, toogleNav, groupedPositions, category, openBox, closeBox, isOpenBox, tempImageUrl }
   }
 }
 

@@ -76,7 +76,6 @@
     input[type='text'] {
       background-color: transparent;
       border: none;
-      color: white;
       width: 100%;
       height: 36px;
       line-height: 36px;
@@ -115,6 +114,10 @@
         align-items: center;
         border-top: white 1px solid;
         border-bottom: white 1px solid;
+        span.highlight {
+          font-weight: 500;
+          color: #E45B23;
+        }
         .wrapper {
           display: flex;
           flex-direction: row;
@@ -175,6 +178,12 @@
                 }
               }
             }
+            img {
+              width: 48px;
+              height: 48px;
+              transform: rotate(0deg);
+              transition: .2s ease-in-out;
+            }
           }
           .image {
             flex: 2;
@@ -186,6 +195,21 @@
               height: 100%;
               object-fit: cover;
               object-position: center;
+              transition: .2s ease-in-out;
+            }
+          }
+        }
+        &:hover {
+          .wrapper {
+            .image {
+              img {
+                transform: scale(1.1);
+              }
+            }
+            .textArea {
+              img {
+                transform: rotate(-45deg);
+              }
             }
           }
         }

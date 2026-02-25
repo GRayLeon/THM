@@ -54,16 +54,16 @@ function setupCustomZoom(map) {
 function getIconNormal() {
   return {
     url: '/images/btn--position.svg',
-    scaledSize: new google.maps.Size(32, 32),
-    anchor: new google.maps.Point(16, 32),
+    scaledSize: new google.maps.Size(34, 34),
+    anchor: new google.maps.Point(17, 34),
   }
 }
 
 function getIconActive() {
   return {
     url: '/images/btn--position.svg',
-    scaledSize: new google.maps.Size(48, 48),
-    anchor: new google.maps.Point(24, 48),
+    scaledSize: new google.maps.Size(52, 52),
+    anchor: new google.maps.Point(26, 52),
   }
 }
 
