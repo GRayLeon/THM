@@ -46,7 +46,7 @@
         <img @click="closeSearchArea()" src="./images/btn--close.svg" alt="" class="close">
       </div>
     </div>
-    <div class="content">
+    <div class="content" :class="{ 'ready': isAppReady }">
       <div class="positionInsideBanner">
         <div class="positionInsideBanner__content">
           <div class="line"></div>
@@ -80,7 +80,7 @@
         <div class="positionInside720">
           <div class="positionInside720Area">
             <div class="wrapper">
-              <iframe src="" frameborder="0"></iframe>
+              <iframe  id="asteroomPanoViewer" allow="gyroscope; accelerometer;" src="https://www.asteroom.com/pviewer?hideleadgen=1&stopbgaudio=1&autonav=0&token=Xi3eCEykJUWJ0_iMzvpQHQ" width="800" height="450" frameborder="0" bgcolor="transparent" target="_blank" allowfullscreen webkitallowfullscreen mozallowfullscreen></iframe>
             </div>
           </div>
           <h3>720° 環景導覽</h3>
@@ -94,7 +94,7 @@
           <div class="detailModule doublePic">
             <div class="wrapper">
               <div class="picCard">
-                <div class="image" @click="openBox('./images/position__img__01.png')">
+                <div class="image" @click="openSlideBox('./images/position__img__01.png')">
                   <img src="./images/position__img__01.png" alt="">
                 </div>
                 <div class="title">
@@ -104,7 +104,7 @@
                 </div>
               </div>
               <div class="picCard">
-                <div class="image" @click="openBox('./images/position__img__01.png')">
+                <div class="image" @click="openSlideBox('./images/position__img__01.png')">
                   <img src="./images/position__img__01.png" alt="">
                 </div>
                 <div class="title">
@@ -118,7 +118,7 @@
           <div class="detailModule singlePic">
             <div class="wrapper">
               <div class="picCard">
-                <div class="image" @click="openBox('./images/position__img__01.png')">
+                <div class="image" @click="openSlideBox('./images/position__img__01.png')">
                   <img src="./images/position__img__01.png" alt="">
                 </div>
                 <div class="title">
@@ -164,14 +164,14 @@
                   台灣的歷史從來不是單線敘事，而是多方勢力交錯、留下痕跡後又被下一個時代接手。理解紅毛城，其實是在理解台灣如何一步步成為現在的樣子。
                 </p>
               </div>
-              <div class="image" @click="openBox('./images/position__img__01.png')">
+              <div class="image" @click="openSlideBox('./images/position__img__01.png')">
                   <img src="./images/position__img__01.png" alt="">
                 </div>
             </div>
           </div>
           <div class="detailModule image-text image-right">
             <div class="wrapper">
-              <div class="image" @click="openBox('./images/position__img__01.png')">
+              <div class="image" @click="openSlideBox('./images/position__img__01.png')">
                 <img src="./images/position__img__01.png" alt="">
               </div>
               <div class="text">
@@ -187,8 +187,8 @@
           </div>
           <div class="detailModule video">
             <div class="wrapper">
-              <div class="videoArea">
-                <iframe src="" frameborder="0"></iframe>
+              <div class="videoArea" @click="openVideoBox(getVideoPlayer('https://www.youtube.com/watch?v=wDchsz8nmbo'))">
+                <img :src="getVideoThumbnail('https://www.youtube.com/watch?v=wDchsz8nmbo')" alt="">
               </div>
               <div class="title">
                 <div class="titleArea">
@@ -202,7 +202,7 @@
               <div class="sliderArea swiper">
                 <div class="swiper-wrapper">
                   <div class="sliderItem swiper-slide">
-                    <div class="image" @click="openBox('./images/position__img__01.png')">
+                    <div class="image" @click="openSlideBox('./images/position__img__01.png')">
                       <img src="./images/position__img__01.png" alt="">
                     </div>
                     <div class="title">
@@ -212,7 +212,7 @@
                     </div>
                   </div>
                   <div class="sliderItem swiper-slide">
-                    <div class="image" @click="openBox('./images/position__img__01.png')">
+                    <div class="image" @click="openSlideBox('./images/position__img__01.png')">
                       <img src="./images/position__img__01.png" alt="">
                     </div>
                     <div class="title">
@@ -222,7 +222,7 @@
                     </div>
                   </div>
                   <div class="sliderItem swiper-slide">
-                    <div class="image" @click="openBox('./images/position__img__01.png')">
+                    <div class="image" @click="openSlideBox('./images/position__img__01.png')">
                       <img src="./images/position__img__01.png" alt="">
                     </div>
                     <div class="title">
@@ -232,7 +232,7 @@
                     </div>
                   </div>
                   <div class="sliderItem swiper-slide">
-                    <div class="image" @click="openBox('./images/position__img__01.png')">
+                    <div class="image" @click="openSlideBox('./images/position__img__01.png')">
                       <img src="./images/position__img__01.png" alt="">
                     </div>
                     <div class="title">
@@ -242,7 +242,7 @@
                     </div>
                   </div>
                   <div class="sliderItem swiper-slide">
-                    <div class="image" @click="openBox('./images/position__img__01.png')">
+                    <div class="image" @click="openSlideBox('./images/position__img__01.png')">
                       <img src="./images/position__img__01.png" alt="">
                     </div>
                     <div class="title">
@@ -252,7 +252,7 @@
                     </div>
                   </div>
                   <div class="sliderItem swiper-slide">
-                    <div class="image" @click="openBox('./images/position__img__01.png')">
+                    <div class="image" @click="openSlideBox('./images/position__img__01.png')">
                       <img src="./images/position__img__01.png" alt="">
                     </div>
                     <div class="title">
@@ -262,7 +262,7 @@
                     </div>
                   </div>
                   <div class="sliderItem swiper-slide">
-                    <div class="image" @click="openBox('./images/position__img__01.png')">
+                    <div class="image" @click="openSlideBox('./images/position__img__01.png')">
                       <img src="./images/position__img__01.png" alt="">
                     </div>
                     <div class="title">
@@ -310,11 +310,20 @@
         </div>
       </div>
     </div>
-    <div class="slideBox" :class="{ 'open': isOpenBox }">
-      <img src="./images/btn--close--w.svg" alt="" class="close" @click="closeBox()">
+    <div class="slideBox" :class="{ 'open': isOpenSlideBox }">
+      <img src="./images/btn--close--w.svg" alt="" class="close" @click="closeSlideBox()">
       <div class="image">
         <img :src="tempImageUrl" alt="" />
       </div>
+    </div>
+    <div class="videoBox" :class="{ 'open': isOpenVideoBox }">
+      <img src="./images/btn--close--w.svg" alt="" class="close" @click="closeVideoBox()">
+      <iframe
+        :src="tempVideoUrl"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen>
+      </iframe>
     </div>
     <div class="toastArea" :class="{ 'open': isCopied }">
       <div class="toast">網址已複製</div>

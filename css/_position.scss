@@ -13,7 +13,7 @@
     width: 100%;
     height: 100vh;
     opacity: 0;
-    transition: .3s ease-in-out;
+    transition: .6s ease-in-out;
     &.ready {
       opacity: 1;
     }
@@ -152,7 +152,7 @@
     color: white;
     background-color: black;
     opacity: 1;
-    transition: all .3s;
+    transition: all .6s;
     opacity: 0;
     &.show {
       opacity: 1;
@@ -180,7 +180,7 @@
     width: 32px;
     height: 32px;
     cursor: pointer;
-    transition: all .2s;
+    transition: all .6s;
     &:hover {
       transform: scale(1.05);
     }
@@ -256,7 +256,7 @@
           height: 100%;
           object-fit: cover;
           object-position: center;
-          transition: .2s ease-in-out;
+          transition: .6s ease-in-out;
         }
       }
       .option {
@@ -279,7 +279,7 @@
           img {
             width: 48px;
             transform: rotate(0deg);
-            transition: .2s ease-in-out;
+            transition: .6s ease-in-out;
           }
         }
       }

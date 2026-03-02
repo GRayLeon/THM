@@ -46,7 +46,7 @@
         <img @click="closeSearchArea()" src="./images/btn--close.svg" alt="" class="close">
       </div>
     </div>
-    <div class="content">
+    <div class="content" :class="{ 'ready': isAppReady }">
       <div class="indexBanner">
         <div class="indexBanner__slide swiper">
           <div class="swiper-wrapper">
@@ -167,11 +167,11 @@
         </div>
       </div>
     </div>
-  </div>
-  <div class="slideBox" :class="{ 'open': isOpenBox }">
-    <img src="./images/btn--close--w.svg" alt="" class="close">
-    <div class="image">
-      <img :src="tempImageUrl" alt="" />
+    <div class="slideBox" :class="{ 'open': isOpenSlideBox }">
+      <img src="./images/btn--close--w.svg" alt="" class="close" @click="closeSlideBox()">
+      <div class="image">
+        <img :src="tempImageUrl" alt="" />
+      </div>
     </div>
   </div>
 </body>

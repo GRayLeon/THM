@@ -1,4 +1,4 @@
-import { computed, onMounted, createApp } from 'https://unpkg.com/vue@3/dist/vue.esm-browser.prod.js'
+import { ref, computed, onMounted, createApp, nextTick } from 'https://unpkg.com/vue@3/dist/vue.esm-browser.prod.js'
 
 import { useHeaderOffset } from './composables/useHeaderOffset.js'
 import { usePositionInsideBanner } from './composables/usePositionInsideBanner.js'
@@ -7,11 +7,15 @@ import { useSearchArea } from './composables/useSearchArea.js'
 import { useNavOpen } from './composables/useNavOpen.js'
 import { positionList } from './mock/position.js'
 import { useSlideBox } from './composables/useSlideBox.js'
+import { useVideoBox } from './composables/useVideoBox.js'
 import { useProgressBar } from './composables/useProgressBar.js'
+import { getVideoId, getVideoPlayer, getVideoThumbnail } from './composables/useVideoInfo.js'
 import { shareLink, isCopied } from './composables/useShareLink.js'
 
 createApp({
   setup() {
+    const isAppReady = ref(false)
+
     useHeaderOffset()
     usePositionInsideBanner()
     
@@ -30,11 +34,12 @@ createApp({
       return category.value.markers.find(item => item.id === positionId)
     })
 
-    const { openBox, closeBox, isOpenBox, tempImageUrl } = useSlideBox()
+    const { openSlideBox, closeSlideBox, isOpenSlideBox, tempImageUrl } = useSlideBox()
+    const { openVideoBox, closeVideoBox, isOpenVideoBox, tempVideoUrl } = useVideoBox()
 
     const { progress } = useProgressBar()
     
-    onMounted(() => {
+    onMounted( async () => {
       const swiper = new window.Swiper('.swiper', {
         slidesPerView: 1,
         spaceBetween: 24,
@@ -50,8 +55,21 @@ createApp({
           prevEl: ".swiper-button-prev",
         },
       })
+
+      await nextTick()
+      isAppReady.value = true
     })
 
-    return { go, isOpenSearch, openSearchArea, closeSearchArea, isOpenNav, toogleNav, categoryId, positionId, category, position, openBox, closeBox, isOpenBox, tempImageUrl, progress, shareLink, isCopied }
+    return { 
+      isAppReady,
+      go,
+      isOpenSearch, openSearchArea, closeSearchArea,
+      isOpenNav, toogleNav, 
+      categoryId, positionId, category, position, 
+      openSlideBox, closeSlideBox, isOpenSlideBox, tempImageUrl,
+      openVideoBox, closeVideoBox, isOpenVideoBox, tempVideoUrl, 
+      progress, shareLink, isCopied,
+      getVideoId, getVideoPlayer, getVideoThumbnail
+    }
   }
 }).mount('#app')

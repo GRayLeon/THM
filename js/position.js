@@ -1,4 +1,4 @@
-import { computed, createApp } from 'https://unpkg.com/vue@3/dist/vue.esm-browser.prod.js'
+import { ref, computed, createApp, onMounted, nextTick } from 'https://unpkg.com/vue@3/dist/vue.esm-browser.prod.js'
 
 import { useHeaderOffset } from './composables/useHeaderOffset.js'
 import { usePositionBanner } from './composables/usePositionBanner.js'
@@ -12,6 +12,8 @@ import { useSlideBox } from './composables/useSlideBox.js'
 
 const App = {
   setup() {
+    const isAppReady = ref(false)
+
     useHeaderOffset()
     usePositionBanner()
     useGoogleMap()
@@ -41,9 +43,22 @@ const App = {
       return result
     })
 
-    const { openBox, closeBox, isOpenBox, tempImageUrl } = useSlideBox()
+    const { openSlideBox, closeSlideBox, isOpenSlideBox, tempImageUrl } = useSlideBox()
+
+    onMounted( async () => {
+      await nextTick()
+      isAppReady.value = true
+    })
     
-    return { currentPostion, go, isOpenSearch, openSearchArea, closeSearchArea, isOpenNav, toogleNav, groupedPositions, category, openBox, closeBox, isOpenBox, tempImageUrl, isMapReady }
+    return { 
+      isAppReady,
+      currentPostion,
+      go,
+      isOpenSearch, openSearchArea, closeSearchArea,
+      isOpenNav, toogleNav,
+      groupedPositions, category,
+      openSlideBox, closeSlideBox, isOpenSlideBox, tempImageUrl,
+      isMapReady }
   }
 }
 

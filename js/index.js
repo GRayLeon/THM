@@ -1,4 +1,4 @@
-import { createApp, onMounted } from 'https://unpkg.com/vue@3/dist/vue.esm-browser.prod.js'
+import { ref, createApp, onMounted, nextTick } from 'https://unpkg.com/vue@3/dist/vue.esm-browser.prod.js'
 
 import { useHeaderOffset } from './composables/useHeaderOffset.js'
 import { useIndexBanner } from './composables/useIndexBanner.js'
@@ -9,6 +9,8 @@ import { useSlideBox } from './composables/useSlideBox.js'
 
 createApp({
   setup() {
+    const isAppReady = ref(false)
+    
     useHeaderOffset()
     useIndexBanner()
     
@@ -17,9 +19,9 @@ createApp({
 
     const { go } = useUrl()
 
-    const { openBox, closeBox, isOpenBox, tempImageUrl } = useSlideBox()
+    const { openSlideBox, closeSlideBox, isOpenSlideBox, tempImageUrl } = useSlideBox()
 
-    onMounted(() => {
+    onMounted(async () => {
       const swiper = new window.Swiper('.swiper', {
         direction: 'horizontal',
         loop: true,
@@ -30,8 +32,16 @@ createApp({
           disableOnInteraction: false,
         },
       })
+      await nextTick()
+      isAppReady.value = true
     })
     
-    return { openSearchArea, closeSearchArea, isOpenSearch, isOpenNav, toogleNav, go, openBox, closeBox, isOpenBox, tempImageUrl }
+    return { 
+      isAppReady,
+      openSearchArea, closeSearchArea, isOpenSearch,
+      isOpenNav, toogleNav,
+      go,
+      openSlideBox, closeSlideBox, isOpenSlideBox, tempImageUrl
+    }
   }
 }).mount('#app')

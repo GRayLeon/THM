@@ -1,19 +1,19 @@
 import { ref } from 'https://unpkg.com/vue@3/dist/vue.esm-browser.prod.js'
 
 export function useSlideBox() {
-  const isOpenBox = ref(false)
+  const isOpenSlideBox = ref(false)
 
   const tempImageUrl = ref('')
 
-  const openBox = (imageUrl) => {
+  const openSlideBox = (imageUrl) => {
     tempImageUrl.value = imageUrl
-    isOpenBox.value = true
+    isOpenSlideBox.value = true
   }
 
-  const closeBox = () => {
+  const closeSlideBox = () => {
     tempImageUrl.value = ''
-    isOpenBox.value = false
+    isOpenSlideBox.value = false
   }
 
-  return { isOpenBox, tempImageUrl, openBox, closeBox }
+  return { isOpenSlideBox, tempImageUrl, openSlideBox, closeSlideBox }
 }

@@ -366,6 +366,16 @@ table {
 
 body {
   font-family: "Montserrat", sans-serif;
+  background-color: #EFEFEF;
+}
+
+.content {
+  opacity: 0;
+  transition: opacity 0.6s ease;
+}
+
+.content.ready {
+  opacity: 1;
 }
 
 * {
@@ -387,7 +397,7 @@ img {
 
 a {
   cursor: pointer;
-  transition: 0.2s ease-in-out;
+  transition: 0.6s ease-in-out;
 }
 a:hover {
   opacity: 0.6;
@@ -421,9 +431,40 @@ a:hover {
   top: 24px;
   right: 24px;
   cursor: pointer;
-  transition: 0.2s ease-in-out;
+  transition: 0.6s ease-in-out;
 }
 .slideBox .close:hover {
+  opacity: 0.6;
+}
+
+.videoBox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+.videoBox.open {
+  display: flex;
+}
+.videoBox iframe {
+  width: calc(100% - 40px);
+  height: calc(100% - 160px);
+}
+.videoBox .close {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  cursor: pointer;
+  transition: 0.6s ease-in-out;
+}
+.videoBox .close:hover {
   opacity: 0.6;
 }
 
@@ -496,7 +537,7 @@ a:hover {
 .header .navArea .mainNav li a {
   color: #fff;
   text-decoration: none;
-  transition: 0.2s ease-in-out;
+  transition: 0.6s ease-in-out;
 }
 .header .navArea .mainNav li a:hover {
   opacity: 0.6;
@@ -587,11 +628,11 @@ a:hover {
   align-items: center;
   background-color: #E45B23;
   overflow: hidden;
-  transition: all 0.3s;
+  transition: all 0.6s;
 }
 .header .searchArea > * {
   opacity: 0;
-  transition: all 0.3s;
+  transition: all 0.6s;
 }
 .header .searchArea.open {
   height: var(--header-offset, 124px);
@@ -649,7 +690,7 @@ a:hover {
     width: 100%;
     height: 54px;
     padding: 0 24px;
-    transition: all 0.3s;
+    transition: all 0.6s;
     overflow: hidden;
   }
   .headerArea:has(.open) {
@@ -681,7 +722,7 @@ a:hover {
     background-color: rgba(255, 255, 255, 0.75);
     backdrop-filter: blur(20px);
     overflow: hidden;
-    transition: all 0.3s;
+    transition: all 0.6s;
   }
   .header .navArea .mainNav {
     flex-direction: column;
@@ -778,7 +819,7 @@ a:hover {
 }
 .footer {
   color: white;
-  border: white 1px solid;
+  border: #EFEFEF 1px solid;
 }
 .footer .borderArea {
   display: flex;
@@ -884,7 +925,7 @@ a:hover {
      object-fit: cover;
   -o-object-position: center;
      object-position: center;
-  animation: slideIn 15s;
+  animation: slideIn 15s infinite linear;
 }
 .indexBanner__content {
   position: absolute;
@@ -996,7 +1037,7 @@ a:hover {
   left: 0;
   width: 16px;
   height: 16px;
-  background-image: url("../images/radius__w--lb.svg");
+  background-image: url("../images/radiusg--lb.svg");
   background-size: 100% 100%;
   background-repeat: no-repeat;
 }
@@ -1057,7 +1098,7 @@ a:hover {
   height: 100%;
   padding: 100px 110px 160px;
   border-radius: 16px;
-  background-color: white;
+  background-color: #efefef;
 }
 .indexIntro__title {
   display: flex;
@@ -1121,7 +1162,7 @@ a:hover {
      object-fit: cover;
   -o-object-position: center;
      object-position: center;
-  transition: 0.2s ease-in-out;
+  transition: 0.6s ease-in-out;
 }
 .indexCategory__content .detail {
   position: absolute;
@@ -1146,7 +1187,7 @@ a:hover {
 }
 .indexCategory__content .detail > img {
   width: 100px;
-  transition: 0.2s ease-in-out;
+  transition: 0.6s ease-in-out;
   transform: rotate(0deg);
 }
 .indexCategory__content .detail h1 {
@@ -1177,7 +1218,7 @@ a:hover {
 .typeA .indexCategory__content .detail {
   top: 0;
   left: 0;
-  border-right: white 1px solid;
+  border-right: #efefef 1px solid;
 }
 .typeA .indexCategory__content .detail::after {
   content: "";
@@ -1186,7 +1227,7 @@ a:hover {
   right: -16.5px;
   width: 32px;
   height: 100%;
-  background: url("../images/radius__w--t.svg") top center/32px 16px no-repeat, url("../images/radius__w--b.svg") bottom center/32px 16px no-repeat;
+  background: url("../images/radius__g--t.svg") top center/32px 16px no-repeat, url("../images/radius__g--b.svg") bottom center/32px 16px no-repeat;
   z-index: 99;
 }
 
@@ -1218,8 +1259,8 @@ a:hover {
 .typeB .indexCategory__content .detail {
   top: 0;
   left: 150px;
-  border-left: white 1px solid;
-  border-right: white 1px solid;
+  border-left: #efefef 1px solid;
+  border-right: #efefef 1px solid;
 }
 .typeB .indexCategory__content .detail::before {
   content: "";
@@ -1228,7 +1269,7 @@ a:hover {
   left: -16.5px;
   width: 32px;
   height: 100%;
-  background: url("../images/radius__w--t.svg") top center/32px 16px no-repeat, url("../images/radius__w--b.svg") bottom center/32px 16px no-repeat;
+  background: url("../images/radius__g--t.svg") top center/32px 16px no-repeat, url("../images/radius__g--b.svg") bottom center/32px 16px no-repeat;
   z-index: 99;
 }
 .typeB .indexCategory__content .detail::after {
@@ -1238,7 +1279,7 @@ a:hover {
   right: -16.5px;
   width: 32px;
   height: 100%;
-  background: url("../images/radius__w--t.svg") top center/32px 16px no-repeat, url("../images/radius__w--b.svg") bottom center/32px 16px no-repeat;
+  background: url("../images/radius__g--t.svg") top center/32px 16px no-repeat, url("../images/radius__g--b.svg") bottom center/32px 16px no-repeat;
   z-index: 99;
 }
 
@@ -1258,8 +1299,8 @@ a:hover {
 .typeC .indexCategory__content .detail {
   top: 0;
   left: 300px;
-  border-left: white 1px solid;
-  border-right: white 1px solid;
+  border-left: #efefef 1px solid;
+  border-right: #efefef 1px solid;
 }
 .typeC .indexCategory__content .detail::before {
   content: "";
@@ -1268,7 +1309,7 @@ a:hover {
   left: -16.5px;
   width: 32px;
   height: 100%;
-  background: url("../images/radius__w--t.svg") top center/32px 16px no-repeat, url("../images/radius__w--b.svg") bottom center/32px 16px no-repeat;
+  background: url("../images/radius__g--t.svg") top center/32px 16px no-repeat, url("../images/radius__g--b.svg") bottom center/32px 16px no-repeat;
   z-index: 99;
 }
 
@@ -1326,7 +1367,7 @@ a:hover {
     flex: 1;
     display: block;
     width: 100px;
-    border-left: white 1px solid;
+    border-left: #efefef 1px solid;
     background-image: url("../images/header_cover.png");
     background-size: cover;
     background-position: center;
@@ -1339,7 +1380,7 @@ a:hover {
     left: -16.5px;
     width: 32px;
     height: 100%;
-    background: url("../images/radius__w--t.svg") top center/32px 16px no-repeat, url("../images/radius__w--b.svg") bottom center/32px 16px no-repeat;
+    background: url("../images/radius__g--t.svg") top center/32px 16px no-repeat, url("../images/radius__g--b.svg") bottom center/32px 16px no-repeat;
   }
   .indexBanner__content .detail .description {
     flex: none;
@@ -1421,7 +1462,7 @@ a:hover {
   width: 100%;
   height: 100vh;
   opacity: 0;
-  transition: 0.3s ease-in-out;
+  transition: 0.6s ease-in-out;
 }
 .positionBanner__map.ready {
   opacity: 1;
@@ -1560,7 +1601,7 @@ a:hover {
   color: white;
   background-color: black;
   opacity: 1;
-  transition: all 0.3s;
+  transition: all 0.6s;
   opacity: 0;
 }
 .positionBanner__card.show {
@@ -1592,7 +1633,7 @@ a:hover {
   width: 32px;
   height: 32px;
   cursor: pointer;
-  transition: all 0.2s;
+  transition: all 0.6s;
 }
 .positionBanner .btn--zoom:hover {
   transform: scale(1.05);
@@ -1671,7 +1712,7 @@ a:hover {
      object-fit: cover;
   -o-object-position: center;
      object-position: center;
-  transition: 0.2s ease-in-out;
+  transition: 0.6s ease-in-out;
 }
 .positionList ul li .option {
   background-color: white;
@@ -1695,7 +1736,7 @@ a:hover {
 .positionList ul li .option .optionArea img {
   width: 48px;
   transform: rotate(0deg);
-  transition: 0.2s ease-in-out;
+  transition: 0.6s ease-in-out;
 }
 .positionList ul li:hover .image img {
   transform: scale(1.05);
@@ -1971,7 +2012,7 @@ a:hover {
   align-items: center;
   gap: 4px;
   cursor: pointer;
-  transition: 0.2s ease-in-out;
+  transition: 0.6s ease-in-out;
 }
 .positionInsideContent .info .wrapper .back:hover {
   opacity: 0.6;
@@ -1992,7 +2033,7 @@ a:hover {
   gap: 8px;
 }
 .positionInsideContent .info .wrapper .shareLink ul li {
-  transition: 0.2s ease-in-out;
+  transition: 0.6s ease-in-out;
   cursor: pointer;
 }
 .positionInsideContent .info .wrapper .shareLink ul li:hover {
@@ -2075,7 +2116,7 @@ a:hover {
   line-height: 1.6;
   border-radius: 12px;
   background-color: #C5A27A;
-  transition: 0.2s ease-in-out;
+  transition: 0.6s ease-in-out;
   cursor: pointer;
 }
 .backBtn:hover {
@@ -2191,6 +2232,7 @@ a:hover {
   border-top: 0;
   overflow: hidden;
   background-color: white;
+  cursor: pointer;
 }
 .detailModule.doublePic .picCard .image img, .detailModule.singlePic .picCard .image img {
   width: 100%;
@@ -2199,7 +2241,7 @@ a:hover {
      object-fit: cover;
   -o-object-position: center;
      object-position: center;
-  transition: 0.2s ease-in-out;
+  transition: 0.6s ease-in-out;
 }
 .detailModule.doublePic .picCard .title, .detailModule.singlePic .picCard .title {
   background-color: white;
@@ -2371,6 +2413,7 @@ a:hover {
   height: 300px;
   border-radius: 10px;
   overflow: hidden;
+  cursor: pointer;
 }
 .detailModule.image-text .wrapper .image img {
   width: 100%;
@@ -2379,7 +2422,7 @@ a:hover {
      object-fit: cover;
   -o-object-position: center;
      object-position: center;
-  transition: 0.2s ease-in-out;
+  transition: 0.6s ease-in-out;
 }
 .detailModule.image-text .wrapper:hover .image img {
   transform: scale(1.05);
@@ -2396,6 +2439,7 @@ a:hover {
   position: relative;
   display: flex;
   flex-direction: column;
+  background-color: white;
 }
 .detailModule.video .wrapper::before {
   content: "";
@@ -2419,29 +2463,43 @@ a:hover {
   position: relative;
   width: 100%;
   height: 500px;
+  border-radius: 10px;
   background-color: white;
+  overflow: hidden;
 }
 .detailModule.video .videoArea::after {
   content: "";
   position: absolute;
-  top: calc(50% - 50px);
-  left: calc(50% - 50px);
-  width: 100px;
-  height: 100px;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.5);
   background-image: url("../images/btn--play.svg");
-  background-size: contain;
+  background-size: 100px 100px;
   background-position: center;
+  background-repeat: no-repeat;
   cursor: pointer;
 }
-.detailModule.video .videoArea iframe {
+.detailModule.video .videoArea:hover img {
+  transform: scale(1.05);
+}
+.detailModule.video .videoArea img {
   position: relative;
   width: 100%;
   height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
   border: white 1px solid;
   border-top: 0;
   border-radius: 10px;
   background-color: #aaa;
   overflow: hidden;
+  transform: scale(1);
+  transition: 0.6s ease-in-out;
 }
 .detailModule.video .title {
   background-color: white;
@@ -2500,6 +2558,7 @@ a:hover {
   border: white 1px solid;
   border-top: 0;
   overflow: hidden;
+  cursor: pointer;
 }
 .detailModule.slider .sliderItem .image img {
   width: 100%;
@@ -2508,7 +2567,7 @@ a:hover {
      object-fit: cover;
   -o-object-position: center;
      object-position: center;
-  transition: 0.2s ease-in-out;
+  transition: 0.6s ease-in-out;
 }
 .detailModule.slider .sliderItem .title {
   background-color: white;
@@ -2549,7 +2608,7 @@ a:hover {
   background-repeat: no-repeat;
   background-position: center;
   opacity: 1 !important;
-  transition: 0.2s ease-in-out;
+  transition: 0.6s ease-in-out;
 }
 .detailModule.slider .swiper-button-next img, .detailModule.slider .swiper-button-prev img {
   width: 100%;
@@ -2961,7 +3020,7 @@ a:hover {
   width: 48px;
   height: 48px;
   transform: rotate(0deg);
-  transition: 0.2s ease-in-out;
+  transition: 0.6s ease-in-out;
 }
 .searchContent .searchResult ul li .wrapper .image {
   flex: 2;
@@ -2976,7 +3035,7 @@ a:hover {
      object-fit: cover;
   -o-object-position: center;
      object-position: center;
-  transition: 0.2s ease-in-out;
+  transition: 0.6s ease-in-out;
 }
 .searchContent .searchResult ul li:hover .wrapper .image img {
   transform: scale(1.1);
