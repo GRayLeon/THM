@@ -597,8 +597,12 @@
         background-position: center;
         background-repeat: no-repeat;
         cursor: pointer;
+        transition: .6s ease-in-out;
       }
       &:hover {
+        &::after {
+          background-image: url('../images/btn--play--h.svg');
+        }
         img {
           transform: scale(1.05);
         }
